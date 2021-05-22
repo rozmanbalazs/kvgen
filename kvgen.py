@@ -8,11 +8,10 @@ TRED =  '\033[31m' # Red Text
 TBLUE =  '\033[34m' # Blue Text
 ENDC = '\033[m' # reset to the defaults
 
-def restartSelf():
-        os.execv(sys.executable, ['python'] + sys.argv)
+
 
 print("---KV generator by Balika---")
-
+print("================================")
 mapname = input(TGREEN + "Input your map's name: " + ENDC)
 while True:
     if mapname == "":
@@ -21,6 +20,7 @@ while True:
         break
 
 print("Your map name is: "+mapname+".")
+print("================================")
 print(TRED + "AVILABLE T PLAYER MODELS" + ENDC)
 print("1-Anarchist")
 print("2-Balkan")
@@ -38,7 +38,7 @@ while True:
         break
     except ValueError:
         print("Invalid integer. The number must be in the range of 1-7.")
-
+print("================================")
 print(TBLUE + "AVILABLE CT PLAYER MODELS"+ ENDC)
 print("1-FBI")
 print("2-GIGN")
@@ -47,7 +47,6 @@ print("4-IDF")
 print("5-SAS")
 print("6-SEALS")
 print("7-SWAT")
-
 while True:
     try:
         ctmodel = int(input(TGREEN + "Choose your CT side player model [1-7]: " + ENDC))
@@ -119,8 +118,6 @@ finalprint = '"'+mapname+'"\n' '{\n' '    "name"  ' '"'+mapname+'"\n' '    "imag
 
 with open(mapname + '.kv', 'w') as outputTxt:
     outputTxt.write(finalprint)
-print(".kv file exported!")
-
-sysrestart = str(input('Press ENTER to exit or type R to restart '))
-if sysrestart.upper() == "R":
-    restartSelf()
+print(".kv file exported! Successfully")
+print("================================")
+input("Press ENTER to exit.")
