@@ -29,15 +29,19 @@ print("4-Phoenix")
 print("5-Pirate")
 print("6-Professional")
 print("7-Separatist")
+print("8-Jumpsuite (DangerZone)")
+print("9-Heavy Phoenix (heavy armored)")
+print("10-Zombie")
 
 while True:
     try:
-        tmodel = int(input(TGREEN + "Choose your T side player model [1-7]: " + ENDC))
-        if tmodel < 1 or tmodel > 7:
+        tmodel = int(input(TGREEN + "Choose your T side player model [1-10]: " + ENDC))
+        if tmodel < 1 or tmodel > 10:
             raise ValueError #this will send it to the print message and back to the input option
         break
     except ValueError:
-        print("Invalid integer. The number must be in the range of 1-7.")
+        print("Invalid integer. The number must be in the range of 1-10.")
+
 print("================================")
 print(TBLUE + "AVILABLE CT PLAYER MODELS"+ ENDC)
 print("1-FBI")
@@ -47,14 +51,18 @@ print("4-IDF")
 print("5-SAS")
 print("6-SEALS")
 print("7-SWAT")
+print("8-Jumpsuite (DangerZone)")
+print("9-Heavy Phoenix (heavy armored)")
+print("10-Zombie")
+
 while True:
     try:
-        ctmodel = int(input(TGREEN + "Choose your CT side player model [1-7]: " + ENDC))
-        if ctmodel < 1 or ctmodel > 7:
+        ctmodel = int(input(TGREEN + "Choose your CT side player model [1-10]: " + ENDC))
+        if ctmodel < 1 or ctmodel > 10:
             raise ValueError #this will send it to the print message and back to the input option
         break
     except ValueError:
-        print("Invalid integer. The number must be in the range of 1-7.")
+        print("Invalid integer. The number must be in the range of 1-10.")
 
 if tmodel == 1: #anarchist
     tline = '		"tm_anarchist"""\n		"tm_anarchist_variantA"""\n		"tm_anarchist_variantB"""\n		"tm_anarchist_variantC"""\n		"tm_anarchist_variantD"""\n'
@@ -83,6 +91,18 @@ elif tmodel == 6: #Professional
 elif tmodel == 7: #Separatist
     tline = '		"tm_separatist"""\n		"tm_separatist_variantA"""\n		"tm_separatist_variantB"""\n		"tm_separatist_variantC"""\n		"tm_separatist_variantD"""\n'
     tlinearm = 'models/weapons/t_arms_separatist.mdl'
+
+elif tmodel == 8: #JUMPSUITE
+    tline = '		"tm_jumpsuit_varianta"""\n		"tm_jumpsuit_variantb"""\n		"tm_jumpsuit_variantc"""\n'
+    tlinearm = 'models/weapons/t_arms_leet.mdl'
+
+elif tmodel == 9: #Heavy Phoenix
+    tline = '		"tm_phoenix_heavy"""\n'
+    tlinearm = 'models/weapons/t_arms_leet.mdl'
+
+elif tmodel == 10: #Zombie
+    tline = '		"zombie"""\n'
+    tlinearm = 'models/weapons/t_arms_leet.mdl'
 
 #end of T models list ------  end of T models list ------  end of T models list ------  end of T models list ------  end of T models list ------  end of T models list ------  end of T models list ------  
 
@@ -113,6 +133,22 @@ elif ctmodel == 6: #SEALS
 elif ctmodel == 7: #SWAT
     ctline = '		"ctm_swat"""\n		"ctm_swat_variantA"""\n		"ctm_swat_variantB"""\n		"ctm_swat_variantC"""\n		"ctm_swat_variantD"""\n'
     ctlinearm = 'models/weapons/ct_arms_swat.mdl'
+
+elif ctmodel == 8: #JUMPSUITE
+    ctline = '		"tm_jumpsuit_varianta"""\n		"tm_jumpsuit_variantb"""\n		"tm_jumpsuit_variantc"""\n'
+    ctlinearm = 'models/weapons/t_arms_leet.mdl'
+
+elif ctmodel == 8: #JUMPSUITE
+    ctline = '		"tm_jumpsuit_varianta"""\n		"tm_jumpsuit_variantb"""\n		"tm_jumpsuit_variantc"""\n'
+    ctlinearm = 'models/weapons/t_arms_leet.mdl'
+
+elif ctmodel == 9: #Heavy Phoenix
+    ctline = '		"tm_phoenix_heavy"""\n'
+    ctlinearm = 'models/weapons/t_arms_leet.mdl'
+
+elif ctmodel == 10: #Zombie
+    ctline = '		"zombie"""\n'
+    ctlinearm = 'models/weapons/t_arms_leet.mdl'
 
 finalprint = '"'+mapname+'"\n' '{\n' '    "name"  ' '"'+mapname+'"\n' '    "imagename"     ' '"'+mapname+'"\n'  '    "t_arms"    '  '"'+tlinearm+'"\n'	'   "ct_arms"   '	'"'+ctlinearm+'"\n'	    '   "t_models"\n' '    {\n' +tline+ '}\n' 	'   "ct_models"\n' '    {\n' +ctline+ '    }\n' '}\n' "//---KV generator by Balika---"
 
